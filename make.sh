@@ -3,6 +3,6 @@ STATUS="empty"
 
 # do stuff.
 touch log.txt
-printf date > log.txt
+date > log.txt
 
 echo "make.sh beeindigd met status: \"$STATUS\""
