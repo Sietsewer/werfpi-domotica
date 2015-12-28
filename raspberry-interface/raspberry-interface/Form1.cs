@@ -5,21 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace rpi_domotica_controlpanel
+namespace raspberry_interface
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void temperatuur_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

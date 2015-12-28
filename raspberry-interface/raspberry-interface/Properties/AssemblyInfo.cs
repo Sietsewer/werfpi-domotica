@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("rpi-domotica-controlpanel")]
+[assembly: AssemblyTitle("raspberry-interface")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("rpi-domotica-controlpanel")]
+[assembly: AssemblyProduct("raspberry-interface")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("edd16b20-899f-4d19-b1f0-8e5d111817ab")]
+[assembly: Guid("4735f266-5ac8-4eb0-8b1d-9e522972b510")]
 
 // Version information for an assembly consists of the following four values:
 //
