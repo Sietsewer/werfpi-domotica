@@ -68,18 +68,8 @@ namespace raspberry_interface
             SetTimeCallback c = new SetTimeCallback(setTime);
             while (true)
             {
-                string me = "ASDFASDF";
-                if(sensors.Length > 0)
-                {
-                    if (sensors[0].connected)
-                    {
-                        me = sensors[0].Temperature + "";
-                    }
-                }
-                this.Invoke(c, new object[] { DateTime.Now.ToString(me) });
-                clock.Text = DateTime.Now.ToString(me);
-                //this.Invoke(c, new object[] { DateTime.Now.ToString("H:mm:ss") });
-                //clock.Text = DateTime.Now.ToString("H:mm:ss");
+                this.Invoke(c, new object[] { DateTime.Now.ToString("H:mm:ss") });
+                clock.Text = DateTime.Now.ToString("H:mm:ss");
                 Thread.Sleep(100);
             }
         }
