@@ -45,14 +45,17 @@ namespace raspberry_interface
             {
                 try
                 {
-                    file = File.ReadAllText(fileName);
+                    /*file = File.ReadAllText(fileName);
                     temp = file.Split('=');
-                    Temperature = temp[temp.Length - 1];
+                    Temperature = file;*/
                 }
                 catch (IOException e)
                 {
                     throw e;
                 }
+
+                Temperature = DateTime.Now.ToString();
+
                 if (readDelay > 0)
                 {
                     Thread.Sleep((int)readDelay);
