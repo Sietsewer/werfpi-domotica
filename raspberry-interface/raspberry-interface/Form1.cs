@@ -70,7 +70,7 @@ namespace raspberry_interface
         private void updateTable()
         {
 			UpdateTableCallback c = delegate {
-				bindingSource1.ResetBindings(true);
+				dataGridView1.InvalidateColumn(3);
 			};
             while (true)
             {
