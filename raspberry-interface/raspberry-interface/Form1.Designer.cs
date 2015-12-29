@@ -32,25 +32,25 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.temperature = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sensorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.functionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.temperatureSensorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.times = new System.Windows.Forms.TabPage();
             this.weather = new System.Windows.Forms.TabPage();
             this.temperatureSensorDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clock = new System.Windows.Forms.Label();
-            this.temperatureSensorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.system = new System.Windows.Forms.TabPage();
             this.button_exit = new System.Windows.Forms.Button();
+            this.temperatureSensorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.temperatureSensorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.sensorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.functionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.temperature.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorDataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource1)).BeginInit();
             this.system.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -99,38 +99,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // sensorIDDataGridViewTextBoxColumn
-            // 
-            this.sensorIDDataGridViewTextBoxColumn.DataPropertyName = "SensorID";
-            this.sensorIDDataGridViewTextBoxColumn.HeaderText = "SensorID";
-            this.sensorIDDataGridViewTextBoxColumn.Name = "sensorIDDataGridViewTextBoxColumn";
-            this.sensorIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // locationDataGridViewTextBoxColumn
-            // 
-            this.locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
-            this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
-            this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
-            this.locationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // functionDataGridViewTextBoxColumn
-            // 
-            this.functionDataGridViewTextBoxColumn.DataPropertyName = "Function";
-            this.functionDataGridViewTextBoxColumn.HeaderText = "Function";
-            this.functionDataGridViewTextBoxColumn.Name = "functionDataGridViewTextBoxColumn";
-            this.functionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Temperature";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Temperature";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // temperatureSensorBindingSource
-            // 
-            this.temperatureSensorBindingSource.DataSource = typeof(raspberry_interface.TemperatureSensor);
-            // 
             // times
             // 
             this.times.Location = new System.Drawing.Point(4, 22);
@@ -165,10 +133,6 @@
             this.clock.TabIndex = 1;
             this.clock.Text = "00:00:00";
             // 
-            // temperatureSensorBindingSource1
-            // 
-            this.temperatureSensorBindingSource1.DataSource = typeof(raspberry_interface.TemperatureSensor);
-            // 
             // system
             // 
             this.system.Controls.Add(this.button_exit);
@@ -190,6 +154,42 @@
             this.button_exit.UseVisualStyleBackColor = true;
             this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
             // 
+            // temperatureSensorBindingSource
+            // 
+            this.temperatureSensorBindingSource.DataSource = typeof(raspberry_interface.TemperatureSensor);
+            // 
+            // temperatureSensorBindingSource1
+            // 
+            this.temperatureSensorBindingSource1.DataSource = typeof(raspberry_interface.TemperatureSensor);
+            // 
+            // sensorIDDataGridViewTextBoxColumn
+            // 
+            this.sensorIDDataGridViewTextBoxColumn.DataPropertyName = "SensorID";
+            this.sensorIDDataGridViewTextBoxColumn.HeaderText = "SensorID";
+            this.sensorIDDataGridViewTextBoxColumn.Name = "sensorIDDataGridViewTextBoxColumn";
+            this.sensorIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // locationDataGridViewTextBoxColumn
+            // 
+            this.locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
+            this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
+            this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
+            this.locationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // functionDataGridViewTextBoxColumn
+            // 
+            this.functionDataGridViewTextBoxColumn.DataPropertyName = "Function";
+            this.functionDataGridViewTextBoxColumn.HeaderText = "Function";
+            this.functionDataGridViewTextBoxColumn.Name = "functionDataGridViewTextBoxColumn";
+            this.functionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Temperature";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Temperature";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,10 +204,10 @@
             this.tabControl1.ResumeLayout(false);
             this.temperature.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorDataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource1)).EndInit();
             this.system.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,13 +223,13 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource temperatureSensorDataBindingSource;
         private System.Windows.Forms.BindingSource temperatureSensorBindingSource;
+        private System.Windows.Forms.BindingSource temperatureSensorBindingSource1;
+        private System.Windows.Forms.TabPage system;
+        private System.Windows.Forms.Button button_exit;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn functionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.BindingSource temperatureSensorBindingSource1;
-        private System.Windows.Forms.TabPage system;
-        private System.Windows.Forms.Button button_exit;
     }
 }
 
