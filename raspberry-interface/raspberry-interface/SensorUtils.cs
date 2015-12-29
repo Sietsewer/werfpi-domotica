@@ -54,8 +54,7 @@ namespace raspberry_interface
             }
             catch (IOException e)
             {
-                return null;
-                throw e;
+				throw e;
             }
             return sensors;
         }
@@ -75,7 +74,8 @@ namespace raspberry_interface
                         if (two.SensorID == one.SensorID)
                             sensorToAdd = two;
                     }
-                    sensors.Add(sensorToAdd);
+					if(!sensorToAdd.SensorID.Contains("w1_"))
+                    	sensors.Add(sensorToAdd);
                 }
                 return sensors.ToArray();
             }

@@ -37,6 +37,7 @@ namespace raspberry_interface
             }
             dataGridView1.DataSource = bindingSource1;
             updateTableThread = new Thread(updateTable);
+			updateTableThread.Start();
         }
 
         private void maximizeScreen()
