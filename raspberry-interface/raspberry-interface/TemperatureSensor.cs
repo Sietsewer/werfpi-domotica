@@ -41,7 +41,7 @@ namespace raspberry_interface
             this.Function = function;
             this.readDelay = readDelay;
 
-            if (Directory.Exists(SensorModulePath + this.SensorID))
+            if (Directory.Exists(SensorModulePath + this.SensorID) && File.Exists(SensorModulePath + this.SensorID + SensorFileName))
             {
                 connected = true;
                 Function += " & is connected.";
