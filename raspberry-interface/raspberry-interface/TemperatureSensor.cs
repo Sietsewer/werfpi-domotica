@@ -44,6 +44,7 @@ namespace raspberry_interface
             if (Directory.Exists(SensorModulePath + this.SensorID))
             {
                 connected = true;
+                Function += " & is connected.";
                 readTempThread = new Thread(getTemp);
             }
         }
