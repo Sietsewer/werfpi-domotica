@@ -12,6 +12,8 @@ namespace raspberry_interface
 {
     public partial class Form1 : Form
     {
+        TemperatureSensor[] sensors;
+
         public Form1()
         {
             InitializeComponent();
@@ -20,9 +22,25 @@ namespace raspberry_interface
         Thread updateTimeThread;
         private void Form1_Load(object sender, EventArgs e)
         {
-            maximizeScreen();
+            //maximizeScreen();
             updateTimeThread = new Thread(updateTime);
             updateTimeThread.Start();
+            sensors = initSensors();
+            populateTempTable();
+        }
+
+        BindingSource bindingSource1 = new BindingSource();
+        private void populateTempTable()
+        {
+            foreach(TemperatureSensor da in sensors)
+            {
+                bindingSource1.Add(da);
+            }
+            dataGridView1.DataSource = bindingSource1;
+            dataGridView1.Columns[0].DataPropertyName = "SensorID";
+            dataGridView1.Columns[1].DataPropertyName = "Location";
+            dataGridView1.Columns[2].DataPropertyName = "Function";
+            dataGridView1.Columns[3].DataPropertyName = "Temperature";
         }
 
         private void maximizeScreen()
@@ -30,6 +48,17 @@ namespace raspberry_interface
             this.FormBorderStyle = FormBorderStyle.None;
             this.Location = new Point(0, 0);
             this.Size = Screen.PrimaryScreen.Bounds.Size;
+        }
+
+        private TemperatureSensor[] initSensors()
+        {
+            SensorUtils.TemperatureSensorData[] sensors = SensorUtils.allSensors();
+            List<TemperatureSensor> sensorList = new List<TemperatureSensor>();
+            foreach(SensorUtils.TemperatureSensorData sd in sensors)
+            {
+                sensorList.Add(new TemperatureSensor(sd.SensorID, sd.Location, sd.Function));
+            }
+            return sensorList.ToArray();
         }
 
         delegate void SetTimeCallback(string time);
@@ -52,6 +81,11 @@ namespace raspberry_interface
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             updateTimeThread.Abort();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
