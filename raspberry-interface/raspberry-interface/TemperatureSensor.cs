@@ -53,6 +53,7 @@ namespace raspberry_interface
             string file;
             string[] temp;
             string fileName = SensorModulePath + SensorID + SensorFileName;
+            Temperature = fileName;
             while (connected)
             {
                 try
