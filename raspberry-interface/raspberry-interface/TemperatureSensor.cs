@@ -31,7 +31,7 @@ namespace raspberry_interface
             }
         }
 
-        public float Temperature { get; set; }
+        public string Temperature { get; set; }
 
         Thread readTempThread;
         public TemperatureSensor(string sensorID, string location, string function, uint readDelay = 0)
@@ -59,7 +59,7 @@ namespace raspberry_interface
                 {
                     file = File.ReadAllText(fileName);
                     temp = file.Split('=');
-                    Temperature = ((float)Convert.ToInt32(temp[temp.Length - 1]))/1000.0f;
+                    Temperature = temp[temp.Length - 1];
                 }
                 catch (IOException e)
                 {
