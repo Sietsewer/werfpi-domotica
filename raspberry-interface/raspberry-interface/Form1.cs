@@ -12,31 +12,31 @@ namespace raspberry_interface
 {
     public partial class Form1 : Form
     {
-        TemperatureSensor[] sensors;
-
         public Form1()
         {
             InitializeComponent();
         }
 
         Thread updateTimeThread;
+        Thread updateTableThread;
         private void Form1_Load(object sender, EventArgs e)
         {
             //maximizeScreen();
             updateTimeThread = new Thread(updateTime);
             updateTimeThread.Start();
-            sensors = initSensors();
-            populateTempTable();
+            TemperatureSensor[] sensors = initSensors();
+            populateTempTable(sensors);
         }
 
         BindingSource bindingSource1 = new BindingSource();
-        private void populateTempTable()
+        private void populateTempTable(TemperatureSensor[] tableSensors)
         {
-            foreach(TemperatureSensor da in sensors)
+            foreach(TemperatureSensor da in tableSensors)
             {
                 bindingSource1.Add(da);
             }
             dataGridView1.DataSource = bindingSource1;
+            updateTableThread = new Thread(updateTable);
         }
 
         private void maximizeScreen()
@@ -62,7 +62,17 @@ namespace raspberry_interface
         {
             clock.Text = s;
         }
-        
+
+        delegate void UpdateTableCallback();
+        private void updateTable()
+        {
+            UpdateTableCallback c = new UpdateTableCallback(dataGridView1.Refresh);
+            while (true)
+            {
+                Invoke(c);
+            }
+        }
+
         private void updateTime()
         {
             SetTimeCallback c = new SetTimeCallback(setTime);
@@ -77,6 +87,7 @@ namespace raspberry_interface
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             updateTimeThread.Abort();
+            updateTableThread.Abort();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
