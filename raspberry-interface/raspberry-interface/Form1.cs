@@ -16,7 +16,7 @@ namespace raspberry_interface
         {
             InitializeComponent();
         }
-
+        TemperatureSensor[] sensors;
         Thread updateTimeThread;
         Thread updateTableThread;
         private void Form1_Load(object sender, EventArgs e)
@@ -24,7 +24,7 @@ namespace raspberry_interface
             //maximizeScreen();
             updateTimeThread = new Thread(updateTime);
             updateTimeThread.Start();
-            TemperatureSensor[] sensors = initSensors();
+            sensors = initSensors();
             populateTempTable(sensors);
         }
 
@@ -53,7 +53,7 @@ namespace raspberry_interface
             List<TemperatureSensor> sensorList = new List<TemperatureSensor>();
             foreach(SensorUtils.TemperatureSensorData sd in sensors)
             {
-                sensorList.Add(new TemperatureSensor(sd.SensorID, sd.Location, sd.Function));
+                sensorList.Add(new TemperatureSensor(sd.SensorID, sd.Location, sd.Function, 1000));
             }
             return sensorList.ToArray();
         }
@@ -89,6 +89,10 @@ namespace raspberry_interface
         {
             updateTimeThread.Abort();
             updateTableThread.Abort();
+            foreach(TemperatureSensor s in sensors)
+            {
+                s.readTempThread.Abort();
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

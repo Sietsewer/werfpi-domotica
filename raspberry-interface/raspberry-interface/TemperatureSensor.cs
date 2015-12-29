@@ -33,7 +33,7 @@ namespace raspberry_interface
 
         public float Temperature { get; set; }
 
-        Thread readTempThread;
+        public Thread readTempThread;
         public TemperatureSensor(string sensorID, string location, string function, uint readDelay = 0)
         {
             this.SensorID = sensorID;
@@ -72,12 +72,6 @@ namespace raspberry_interface
                     Thread.Sleep((int)readDelay);
                 }
             }
-        }
-
-        ~TemperatureSensor()
-        {
-            if(readTempThread!=null && readTempThread.IsAlive)
-                readTempThread.Abort();
         }
     }
 }
