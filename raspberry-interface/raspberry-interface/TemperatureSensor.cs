@@ -21,7 +21,7 @@ namespace raspberry_interface
 
         public bool connected = false;
 
-        public float Temperature { get; set; }
+        public string Temperature { get; set; }
 
         public TemperatureSensor(string sensorID, string location, string function, uint readDelay = 0)
         {
@@ -47,7 +47,7 @@ namespace raspberry_interface
                 {
                     file = File.ReadAllText(fileName);
                     temp = file.Split('=');
-                    Temperature = Convert.ToInt32(temp[temp.Length - 1]);
+                    Temperature = temp[temp.Length - 1];
                 }
                 catch (IOException e)
                 {

@@ -94,5 +94,10 @@ namespace raspberry_interface
         {
 
         }
+
+        private void button_exit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }
