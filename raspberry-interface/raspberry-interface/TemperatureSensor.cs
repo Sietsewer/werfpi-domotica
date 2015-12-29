@@ -21,8 +21,19 @@ namespace raspberry_interface
 
         public bool connected = false;
 
-        public string Temperature { get; set; }
+        public bool IsConnected { get
+            {
+                return connected;
+            }
+            set
+            {
+                connected = value;
+            }
+        }
 
+        public float Temperature { get; set; }
+
+        Thread readTempThread;
         public TemperatureSensor(string sensorID, string location, string function, uint readDelay = 0)
         {
             this.SensorID = sensorID;
@@ -33,6 +44,7 @@ namespace raspberry_interface
             if (Directory.Exists(SensorModulePath + this.SensorID))
             {
                 connected = true;
+                readTempThread = new Thread(getTemp);
             }
         }
 
@@ -47,7 +59,7 @@ namespace raspberry_interface
                 {
                     file = File.ReadAllText(fileName);
                     temp = file.Split('=');
-                    Temperature = temp[temp.Length - 1];
+                    Temperature = ((float)Convert.ToInt32(temp[temp.Length - 1]))/1000.0f;
                 }
                 catch (IOException e)
                 {
@@ -58,6 +70,12 @@ namespace raspberry_interface
                     Thread.Sleep((int)readDelay);
                 }
             }
+        }
+
+        ~TemperatureSensor()
+        {
+            if(readTempThread!=null && readTempThread.IsAlive)
+                readTempThread.Abort();
         }
     }
 }

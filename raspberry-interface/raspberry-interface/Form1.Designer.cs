@@ -44,6 +44,7 @@
             this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.functionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.temperatureSensorBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.temperature.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -51,6 +52,7 @@
             this.system.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -91,7 +93,7 @@
             this.locationDataGridViewTextBoxColumn,
             this.functionDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn1});
-            this.dataGridView1.DataSource = this.temperatureSensorBindingSource;
+            this.dataGridView1.DataSource = this.temperatureSensorBindingSource2;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -190,6 +192,10 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
+            // temperatureSensorBindingSource2
+            // 
+            this.temperatureSensorBindingSource2.DataSource = typeof(raspberry_interface.TemperatureSensor);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +214,7 @@
             this.system.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,6 +237,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn functionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource temperatureSensorBindingSource2;
     }
 }
 
