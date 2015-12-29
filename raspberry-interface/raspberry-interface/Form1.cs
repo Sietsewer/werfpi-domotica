@@ -21,7 +21,7 @@ namespace raspberry_interface
         Thread updateTableThread;
         private void Form1_Load(object sender, EventArgs e)
         {
-            //maximizeScreen();
+            maximizeScreen();
             updateTimeThread = new Thread(updateTime);
             updateTimeThread.Start();
             sensors = initSensors();
@@ -35,6 +35,8 @@ namespace raspberry_interface
             {
                 bindingSource1.Add(da);
             }
+			dataGridView1.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
+
             dataGridView1.DataSource = bindingSource1;
             updateTableThread = new Thread(updateTable);
 			updateTableThread.Start();
@@ -67,7 +69,9 @@ namespace raspberry_interface
         delegate void UpdateTableCallback();
         private void updateTable()
         {
-            UpdateTableCallback c = new UpdateTableCallback(dataGridView1.Refresh);
+			UpdateTableCallback c = delegate {
+				bindingSource1.ResetBindings(true);
+			};
             while (true)
             {
                 Invoke(c);
