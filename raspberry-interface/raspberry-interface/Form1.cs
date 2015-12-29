@@ -37,10 +37,6 @@ namespace raspberry_interface
                 bindingSource1.Add(da);
             }
             dataGridView1.DataSource = bindingSource1;
-            dataGridView1.Columns[0].DataPropertyName = "SensorID";
-            dataGridView1.Columns[1].DataPropertyName = "Location";
-            dataGridView1.Columns[2].DataPropertyName = "Function";
-            dataGridView1.Columns[3].DataPropertyName = "Temperature";
         }
 
         private void maximizeScreen()
