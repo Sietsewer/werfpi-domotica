@@ -32,27 +32,31 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.temperature = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.times = new System.Windows.Forms.TabPage();
-            this.weather = new System.Windows.Forms.TabPage();
-            this.temperatureSensorDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clock = new System.Windows.Forms.Label();
-            this.system = new System.Windows.Forms.TabPage();
-            this.button_exit = new System.Windows.Forms.Button();
-            this.temperatureSensorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.temperatureSensorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.sensorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.functionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.temperatureSensorBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.times = new System.Windows.Forms.TabPage();
+            this.weather = new System.Windows.Forms.TabPage();
+            this.system = new System.Windows.Forms.TabPage();
+            this.button_exit = new System.Windows.Forms.Button();
+            this.temperatureSensorDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clock = new System.Windows.Forms.Label();
+            this.temperatureSensorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.temperatureSensorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.gpioTest = new System.Windows.Forms.TabPage();
+            this.checkBox19 = new System.Windows.Forms.CheckBox();
+            this.checkBox26 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.temperature.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource2)).BeginInit();
             this.system.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource2)).BeginInit();
+            this.gpioTest.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -64,6 +68,7 @@
             this.tabControl1.Controls.Add(this.times);
             this.tabControl1.Controls.Add(this.weather);
             this.tabControl1.Controls.Add(this.system);
+            this.tabControl1.Controls.Add(this.gpioTest);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -101,69 +106,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // times
-            // 
-            this.times.Location = new System.Drawing.Point(4, 22);
-            this.times.Name = "times";
-            this.times.Padding = new System.Windows.Forms.Padding(3);
-            this.times.Size = new System.Drawing.Size(894, 484);
-            this.times.TabIndex = 0;
-            this.times.Text = "Tijden";
-            this.times.UseVisualStyleBackColor = true;
-            // 
-            // weather
-            // 
-            this.weather.Location = new System.Drawing.Point(4, 22);
-            this.weather.Name = "weather";
-            this.weather.Padding = new System.Windows.Forms.Padding(3);
-            this.weather.Size = new System.Drawing.Size(894, 484);
-            this.weather.TabIndex = 1;
-            this.weather.Text = "Weer";
-            this.weather.UseVisualStyleBackColor = true;
-            // 
-            // temperatureSensorDataBindingSource
-            // 
-            this.temperatureSensorDataBindingSource.DataSource = typeof(raspberry_interface.SensorUtils.TemperatureSensorData);
-            // 
-            // clock
-            // 
-            this.clock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.clock.AutoSize = true;
-            this.clock.Location = new System.Drawing.Point(865, 10);
-            this.clock.Name = "clock";
-            this.clock.Size = new System.Drawing.Size(49, 13);
-            this.clock.TabIndex = 1;
-            this.clock.Text = "00:00:00";
-            // 
-            // system
-            // 
-            this.system.Controls.Add(this.button_exit);
-            this.system.Location = new System.Drawing.Point(4, 22);
-            this.system.Name = "system";
-            this.system.Size = new System.Drawing.Size(894, 484);
-            this.system.TabIndex = 3;
-            this.system.Text = "Systeem";
-            this.system.UseVisualStyleBackColor = true;
-            // 
-            // button_exit
-            // 
-            this.button_exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_exit.Location = new System.Drawing.Point(745, 3);
-            this.button_exit.Name = "button_exit";
-            this.button_exit.Size = new System.Drawing.Size(146, 23);
-            this.button_exit.TabIndex = 0;
-            this.button_exit.Text = "Sluiten";
-            this.button_exit.UseVisualStyleBackColor = true;
-            this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
-            // 
-            // temperatureSensorBindingSource
-            // 
-            this.temperatureSensorBindingSource.DataSource = typeof(raspberry_interface.TemperatureSensor);
-            // 
-            // temperatureSensorBindingSource1
-            // 
-            this.temperatureSensorBindingSource1.DataSource = typeof(raspberry_interface.TemperatureSensor);
-            // 
             // sensorIDDataGridViewTextBoxColumn
             // 
             this.sensorIDDataGridViewTextBoxColumn.DataPropertyName = "SensorID";
@@ -196,6 +138,102 @@
             // 
             this.temperatureSensorBindingSource2.DataSource = typeof(raspberry_interface.TemperatureSensor);
             // 
+            // times
+            // 
+            this.times.Location = new System.Drawing.Point(4, 22);
+            this.times.Name = "times";
+            this.times.Padding = new System.Windows.Forms.Padding(3);
+            this.times.Size = new System.Drawing.Size(894, 484);
+            this.times.TabIndex = 0;
+            this.times.Text = "Tijden";
+            this.times.UseVisualStyleBackColor = true;
+            // 
+            // weather
+            // 
+            this.weather.Location = new System.Drawing.Point(4, 22);
+            this.weather.Name = "weather";
+            this.weather.Padding = new System.Windows.Forms.Padding(3);
+            this.weather.Size = new System.Drawing.Size(894, 484);
+            this.weather.TabIndex = 1;
+            this.weather.Text = "Weer";
+            this.weather.UseVisualStyleBackColor = true;
+            // 
+            // system
+            // 
+            this.system.Controls.Add(this.button_exit);
+            this.system.Location = new System.Drawing.Point(4, 22);
+            this.system.Name = "system";
+            this.system.Size = new System.Drawing.Size(894, 484);
+            this.system.TabIndex = 3;
+            this.system.Text = "Systeem";
+            this.system.UseVisualStyleBackColor = true;
+            // 
+            // button_exit
+            // 
+            this.button_exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_exit.Location = new System.Drawing.Point(745, 3);
+            this.button_exit.Name = "button_exit";
+            this.button_exit.Size = new System.Drawing.Size(146, 23);
+            this.button_exit.TabIndex = 0;
+            this.button_exit.Text = "Sluiten";
+            this.button_exit.UseVisualStyleBackColor = true;
+            this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
+            // 
+            // temperatureSensorDataBindingSource
+            // 
+            this.temperatureSensorDataBindingSource.DataSource = typeof(raspberry_interface.SensorUtils.TemperatureSensorData);
+            // 
+            // clock
+            // 
+            this.clock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clock.AutoSize = true;
+            this.clock.Location = new System.Drawing.Point(865, 10);
+            this.clock.Name = "clock";
+            this.clock.Size = new System.Drawing.Size(49, 13);
+            this.clock.TabIndex = 1;
+            this.clock.Text = "00:00:00";
+            // 
+            // temperatureSensorBindingSource
+            // 
+            this.temperatureSensorBindingSource.DataSource = typeof(raspberry_interface.TemperatureSensor);
+            // 
+            // temperatureSensorBindingSource1
+            // 
+            this.temperatureSensorBindingSource1.DataSource = typeof(raspberry_interface.TemperatureSensor);
+            // 
+            // gpioTest
+            // 
+            this.gpioTest.Controls.Add(this.checkBox26);
+            this.gpioTest.Controls.Add(this.checkBox19);
+            this.gpioTest.Location = new System.Drawing.Point(4, 22);
+            this.gpioTest.Name = "gpioTest";
+            this.gpioTest.Padding = new System.Windows.Forms.Padding(3);
+            this.gpioTest.Size = new System.Drawing.Size(894, 484);
+            this.gpioTest.TabIndex = 4;
+            this.gpioTest.Text = "GPIO Test";
+            this.gpioTest.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox19.AutoSize = true;
+            this.checkBox19.Location = new System.Drawing.Point(7, 7);
+            this.checkBox19.Name = "checkBox1";
+            this.checkBox19.Size = new System.Drawing.Size(56, 17);
+            this.checkBox19.TabIndex = 0;
+            this.checkBox19.Text = "Pin 19";
+            this.checkBox19.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox26.AutoSize = true;
+            this.checkBox26.Enabled = false;
+            this.checkBox26.Location = new System.Drawing.Point(7, 31);
+            this.checkBox26.Name = "checkBox2";
+            this.checkBox26.Size = new System.Drawing.Size(56, 17);
+            this.checkBox26.TabIndex = 1;
+            this.checkBox26.Text = "Pin 26";
+            this.checkBox26.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,11 +248,13 @@
             this.tabControl1.ResumeLayout(false);
             this.temperature.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource2)).EndInit();
             this.system.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource2)).EndInit();
+            this.gpioTest.ResumeLayout(false);
+            this.gpioTest.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,6 +278,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn functionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource temperatureSensorBindingSource2;
+        private System.Windows.Forms.TabPage gpioTest;
+        private System.Windows.Forms.CheckBox checkBox26;
+        private System.Windows.Forms.CheckBox checkBox19;
     }
 }
 

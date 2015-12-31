@@ -29,9 +29,9 @@ namespace raspberry_interface
                     sensors[i].SensorID = directories[i].Name;
                 }
             }
-            catch (IOException e)
+            catch (DirectoryNotFoundException)
             {
-                throw e;
+                return sensors = new TemperatureSensorData[0];
             }
             return sensors;
         }
@@ -52,9 +52,9 @@ namespace raspberry_interface
                     sensors[i].Function = split[2];
                 }
             }
-            catch (IOException e)
+            catch (DirectoryNotFoundException)
             {
-				throw e;
+				return sensors = new TemperatureSensorData[0];
             }
             return sensors;
         }

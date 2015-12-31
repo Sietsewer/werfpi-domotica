@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using RaspberryGPIOManager;
 
 namespace raspberry_interface
 {
@@ -107,6 +108,25 @@ namespace raspberry_interface
         private void button_exit_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
+        }
+
+
+        delegate void UpdateCheckboxStates();
+        GPIOPinDriver _pin19;
+        GPIOPinDriver _pin26;
+        private bool checkPins = false;
+        private void checkGPIO(GPIOPinDriver pin19, GPIOPinDriver pin26)
+        {
+            UpdateCheckboxStates c = delegate {
+                pin19.State = checkBox19.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
+                checkBox26.CheckState = pin26.State == GPIOPinDriver.GPIOState.High ? CheckState.Checked : CheckState.Unchecked;
+            };
+            checkPins = true;
+            while (checkPins)
+            {
+                Invoke(c);
+                Thread.Sleep(100);
+            }
         }
     }
 }
