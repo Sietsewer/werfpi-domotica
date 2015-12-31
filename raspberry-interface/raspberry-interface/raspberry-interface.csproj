@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,22 +37,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Raspberry.IO, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Raspberry.IO.GeneralPurpose.2.3.0\lib\net40\Raspberry.IO.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Raspberry.IO.GeneralPurpose, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Raspberry.IO.GeneralPurpose.2.3.0\lib\net40\Raspberry.IO.GeneralPurpose.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Raspberry.IO.Interop, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Raspberry.IO.GeneralPurpose.2.3.0\lib\net40\Raspberry.IO.Interop.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Raspberry.System, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Raspberry.System.2.0.0\lib\net40\Raspberry.System.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -62,6 +48,18 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Raspberry.System">
+      <HintPath>..\packages\Raspberry.System.2.0.0\lib\net40\Raspberry.System.dll</HintPath>
+    </Reference>
+    <Reference Include="Raspberry.IO">
+      <HintPath>..\packages\Raspberry.IO.GeneralPurpose.2.3.0\lib\net40\Raspberry.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Raspberry.IO.GeneralPurpose">
+      <HintPath>..\packages\Raspberry.IO.GeneralPurpose.2.3.0\lib\net40\Raspberry.IO.GeneralPurpose.dll</HintPath>
+    </Reference>
+    <Reference Include="Raspberry.IO.Interop">
+      <HintPath>..\packages\Raspberry.IO.GeneralPurpose.2.3.0\lib\net40\Raspberry.IO.Interop.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
@@ -88,7 +86,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="packages.config" />
     <None Include="Properties\DataSources\SensorUtils.TemperatureSensorData.datasource" />
     <None Include="Properties\DataSources\TemperatureSensor.datasource" />
     <None Include="Properties\Settings.settings">
@@ -100,6 +97,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
