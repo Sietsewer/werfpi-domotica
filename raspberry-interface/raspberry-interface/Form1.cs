@@ -47,7 +47,7 @@ namespace raspberry_interface
         OutputPinConfiguration pin31;
         OutputPinConfiguration pin33;
         OutputPinConfiguration pin35;
-        OutputPinConfiguration pin37;
+        InputPinConfiguration pin37;
         GpioConnection gpio05;
         GpioConnection gpio06;
         GpioConnection gpio13;
@@ -60,7 +60,7 @@ namespace raspberry_interface
                 pin31 = ConnectorPin.P1Pin31.Output();
                 pin33 = ConnectorPin.P1Pin33.Output();
                 pin35 = ConnectorPin.P1Pin35.Output();
-                pin37 = ConnectorPin.P1Pin37.Output();
+                pin37 = ConnectorPin.P1Pin37.Input();
                 gpio05 = new GpioConnection(pin29);
                 gpio06 = new GpioConnection(pin31);
                 gpio13 = new GpioConnection(pin33);
@@ -170,6 +170,21 @@ namespace raspberry_interface
                 //pin19.State = checkBox19.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
 
                 //checkBox26.CheckState = pin26.State == GPIOPinDriver.GPIOState.High ? CheckState.Checked : CheckState.Unchecked;
+
+                try
+                {
+                    debugLog.AppendText(gpio05.ToString());
+                    debugLog.AppendText(gpio06.ToString());
+                    debugLog.AppendText(gpio13.ToString());
+                    debugLog.AppendText(gpio19.ToString());
+                    debugLog.AppendText(gpio26.ToString());
+
+
+                }
+                catch (Exception e)
+                {
+                    debugLog.AppendText(e.ToString());
+                }
             };
             checkPins = true;
             while (checkPins)
