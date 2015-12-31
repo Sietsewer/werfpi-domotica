@@ -32,22 +32,27 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.temperature = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.temperatureSensorBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.times = new System.Windows.Forms.TabPage();
             this.weather = new System.Windows.Forms.TabPage();
             this.system = new System.Windows.Forms.TabPage();
             this.button_exit = new System.Windows.Forms.Button();
             this.gpioTest = new System.Windows.Forms.TabPage();
+            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox26 = new System.Windows.Forms.CheckBox();
             this.checkBox19 = new System.Windows.Forms.CheckBox();
             this.temperatureSensorDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clock = new System.Windows.Forms.Label();
             this.temperatureSensorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.temperatureSensorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.temperatureSensorBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isConnectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.temperatureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.temperature.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -57,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -94,21 +100,18 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1});
-            this.dataGridView1.DataSource = this.temperatureSensorBindingSource2;
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.isConnectedDataGridViewCheckBoxColumn,
+            this.temperatureDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.temperatureSensorBindingSource3;
             this.dataGridView1.Location = new System.Drawing.Point(3, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(888, 481);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Temperature";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Temperature";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // times
             // 
@@ -166,6 +169,36 @@
             this.gpioTest.Text = "GPIO Test";
             this.gpioTest.UseVisualStyleBackColor = true;
             // 
+            // checkBox13
+            // 
+            this.checkBox13.AutoSize = true;
+            this.checkBox13.Location = new System.Drawing.Point(6, 52);
+            this.checkBox13.Name = "checkBox13";
+            this.checkBox13.Size = new System.Drawing.Size(56, 17);
+            this.checkBox13.TabIndex = 4;
+            this.checkBox13.Text = "Pin 13";
+            this.checkBox13.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(6, 29);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(50, 17);
+            this.checkBox6.TabIndex = 3;
+            this.checkBox6.Text = "Pin 6";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(6, 6);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(50, 17);
+            this.checkBox5.TabIndex = 2;
+            this.checkBox5.Text = "Pin 5";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
             // checkBox26
             // 
             this.checkBox26.AutoSize = true;
@@ -197,35 +230,44 @@
             this.clock.TabIndex = 1;
             this.clock.Text = "00:00:00";
             // 
-            // checkBox5
+            // temperatureSensorBindingSource3
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(6, 6);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(50, 17);
-            this.checkBox5.TabIndex = 2;
-            this.checkBox5.Text = "Pin 5";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.temperatureSensorBindingSource3.DataSource = typeof(raspberry_interface.TemperatureSensor);
             // 
-            // checkBox6
+            // dataGridViewTextBoxColumn2
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(6, 29);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(50, 17);
-            this.checkBox6.TabIndex = 3;
-            this.checkBox6.Text = "Pin 6";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "SensorID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "SensorID";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // checkBox13
+            // dataGridViewTextBoxColumn3
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(6, 52);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(56, 17);
-            this.checkBox13.TabIndex = 4;
-            this.checkBox13.Text = "Pin 13";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Location";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Location";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Function";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Function";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // isConnectedDataGridViewCheckBoxColumn
+            // 
+            this.isConnectedDataGridViewCheckBoxColumn.DataPropertyName = "IsConnected";
+            this.isConnectedDataGridViewCheckBoxColumn.HeaderText = "IsConnected";
+            this.isConnectedDataGridViewCheckBoxColumn.Name = "isConnectedDataGridViewCheckBoxColumn";
+            this.isConnectedDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // temperatureDataGridViewTextBoxColumn
+            // 
+            this.temperatureDataGridViewTextBoxColumn.DataPropertyName = "Temperature";
+            this.temperatureDataGridViewTextBoxColumn.HeaderText = "Temperature";
+            this.temperatureDataGridViewTextBoxColumn.Name = "temperatureDataGridViewTextBoxColumn";
+            this.temperatureDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Form1
             // 
@@ -248,6 +290,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +312,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn functionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource temperatureSensorBindingSource2;
         private System.Windows.Forms.TabPage gpioTest;
         private System.Windows.Forms.CheckBox checkBox26;
@@ -277,6 +319,12 @@
         private System.Windows.Forms.CheckBox checkBox13;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isConnectedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn temperatureDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource temperatureSensorBindingSource3;
     }
 }
 
