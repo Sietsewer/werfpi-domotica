@@ -20,6 +20,7 @@ namespace raspberry_interface
         TemperatureSensor[] sensors;
         Thread updateTimeThread;
         Thread updateTableThread;
+        Thread updateChecksThread;
         private void Form1_Load(object sender, EventArgs e)
         {
             maximizeScreen();
@@ -27,6 +28,13 @@ namespace raspberry_interface
             updateTimeThread.Start();
             sensors = initSensors();
             populateTempTable(sensors);
+
+            pin19 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO19, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
+            pin26 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO26, GPIOPinDriver.GPIODirection.In);
+
+            updateChecksThread = new Thread(checkGPIO);
+            updateChecksThread.Start();
+
         }
 
         BindingSource bindingSource1 = new BindingSource();
@@ -112,10 +120,10 @@ namespace raspberry_interface
 
 
         delegate void UpdateCheckboxStates();
-        GPIOPinDriver _pin19;
-        GPIOPinDriver _pin26;
+        GPIOPinDriver pin19;
+        GPIOPinDriver pin26;
         private bool checkPins = false;
-        private void checkGPIO(GPIOPinDriver pin19, GPIOPinDriver pin26)
+        private void checkGPIO()
         {
             UpdateCheckboxStates c = delegate {
                 pin19.State = checkBox19.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
