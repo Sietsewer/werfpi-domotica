@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using RaspberryGPIOManager;
+//using RaspberryGPIOManager;
+using Raspberry.IO.GeneralPurpose;
 
 namespace raspberry_interface
 {
@@ -28,17 +29,47 @@ namespace raspberry_interface
             updateTimeThread.Start();
             sensors = initSensors();
             populateTempTable(sensors);
+            initPins();
 
-            pin5 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO5, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
-            pin6 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO6, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
-            pin13 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO13, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
-            pin19 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO19, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
+            //pin5 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO5, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
+            //pin6 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO6, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
+            //pin13 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO13, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
+            //pin19 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO19, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
 
-            pin26 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO26, GPIOPinDriver.GPIODirection.In);
+            //pin26 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO26, GPIOPinDriver.GPIODirection.In);
 
             updateChecksThread = new Thread(checkGPIO);
             updateChecksThread.Start();
 
+        }
+
+        OutputPinConfiguration pin29;
+        OutputPinConfiguration pin31;
+        OutputPinConfiguration pin33;
+        OutputPinConfiguration pin35;
+        OutputPinConfiguration pin37;
+        GpioConnection gpio05;
+        GpioConnection gpio06;
+        GpioConnection gpio13;
+        GpioConnection gpio19;
+        GpioConnection gpio26;
+        void initPins()
+        {
+            try {
+                pin29 = ConnectorPin.P1Pin29.Output();
+                pin31 = ConnectorPin.P1Pin31.Output();
+                pin33 = ConnectorPin.P1Pin33.Output();
+                pin35 = ConnectorPin.P1Pin35.Output();
+                pin37 = ConnectorPin.P1Pin37.Output();
+                gpio05 = new GpioConnection(pin29);
+                gpio06 = new GpioConnection(pin31);
+                gpio13 = new GpioConnection(pin33);
+                gpio19 = new GpioConnection(pin35);
+                gpio26 = new GpioConnection(pin37);
+            } catch (Exception e) {
+                // wrong target!
+                debugLog.AppendText(e.ToString());
+            }
         }
 
         BindingSource bindingSource1 = new BindingSource();
@@ -124,21 +155,21 @@ namespace raspberry_interface
 
 
         delegate void UpdateCheckboxStates();
-        GPIOPinDriver pin5;
-        GPIOPinDriver pin6;
-        GPIOPinDriver pin13;
-        GPIOPinDriver pin19;
-        GPIOPinDriver pin26;
+        //GPIOPinDriver pin5;
+        //GPIOPinDriver pin6;
+        //GPIOPinDriver pin13;
+        //GPIOPinDriver pin19;
+        //GPIOPinDriver pin26;
         private bool checkPins = false;
         private void checkGPIO()
         {
             UpdateCheckboxStates c = delegate {
-                pin5.State = checkBox5.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
-                pin6.State = checkBox6.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
-                pin13.State = checkBox13.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
-                pin19.State = checkBox19.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
+                //pin5.State = checkBox5.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
+                //pin6.State = checkBox6.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
+                //pin13.State = checkBox13.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
+                //pin19.State = checkBox19.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
 
-                checkBox26.CheckState = pin26.State == GPIOPinDriver.GPIOState.High ? CheckState.Checked : CheckState.Unchecked;
+                //checkBox26.CheckState = pin26.State == GPIOPinDriver.GPIOState.High ? CheckState.Checked : CheckState.Unchecked;
             };
             checkPins = true;
             while (checkPins)
