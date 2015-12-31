@@ -83,7 +83,7 @@ namespace raspberry_interface
         private void updateTable()
         {
 			UpdateTableCallback c = delegate {
-				dataGridView1.InvalidateColumn(3);
+				dataGridView1.InvalidateColumn(dataGridView1.ColumnCount-1);
 			};
             while (true)
             {
