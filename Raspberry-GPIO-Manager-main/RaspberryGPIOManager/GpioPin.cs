@@ -18,11 +18,14 @@ namespace RaspberryGPIOManager
             GPIO2,
             GPIO3,
             GPIO4,
+            GPIO5,//EXPERIMENTAL
+            GPIO6,//EXPERIMENTAL
             GPIO7,
             GPIO8,
             GPIO9,
             GPIO10,
             GPIO11,
+            GPIO13,//EXPERIMENTAL
             GPIO14,
             GPIO15,
             GPIO17,

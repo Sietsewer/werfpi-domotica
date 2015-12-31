@@ -29,7 +29,11 @@ namespace raspberry_interface
             sensors = initSensors();
             populateTempTable(sensors);
 
+            pin5 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO5, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
+            pin6 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO6, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
+            pin13 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO13, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
             pin19 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO19, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
+
             pin26 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO26, GPIOPinDriver.GPIODirection.In);
 
             updateChecksThread = new Thread(checkGPIO);
@@ -120,13 +124,20 @@ namespace raspberry_interface
 
 
         delegate void UpdateCheckboxStates();
+        GPIOPinDriver pin5;
+        GPIOPinDriver pin6;
+        GPIOPinDriver pin13;
         GPIOPinDriver pin19;
         GPIOPinDriver pin26;
         private bool checkPins = false;
         private void checkGPIO()
         {
             UpdateCheckboxStates c = delegate {
+                pin5.State = checkBox5.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
+                pin6.State = checkBox6.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
+                pin13.State = checkBox13.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
                 pin19.State = checkBox19.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
+
                 checkBox26.CheckState = pin26.State == GPIOPinDriver.GPIOState.High ? CheckState.Checked : CheckState.Unchecked;
             };
             checkPins = true;
