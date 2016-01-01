@@ -40,7 +40,7 @@
             this.gpioTest = new System.Windows.Forms.TabPage();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.checkBox26 = new System.Windows.Forms.CheckBox();
             this.checkBox19 = new System.Windows.Forms.CheckBox();
             this.temperatureSensorDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -158,7 +158,7 @@
             // 
             this.gpioTest.Controls.Add(this.checkBox13);
             this.gpioTest.Controls.Add(this.checkBox6);
-            this.gpioTest.Controls.Add(this.checkBox5);
+            this.gpioTest.Controls.Add(this.checkBox12);
             this.gpioTest.Controls.Add(this.checkBox26);
             this.gpioTest.Controls.Add(this.checkBox19);
             this.gpioTest.Location = new System.Drawing.Point(4, 22);
@@ -191,13 +191,13 @@
             // 
             // checkBox5
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(6, 6);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(50, 17);
-            this.checkBox5.TabIndex = 2;
-            this.checkBox5.Text = "Pin 5";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox12.AutoSize = true;
+            this.checkBox12.Location = new System.Drawing.Point(6, 6);
+            this.checkBox12.Name = "checkBox5";
+            this.checkBox12.Size = new System.Drawing.Size(50, 17);
+            this.checkBox12.TabIndex = 2;
+            this.checkBox12.Text = "Pin 5";
+            this.checkBox12.UseVisualStyleBackColor = true;
             // 
             // checkBox26
             // 
@@ -318,7 +318,7 @@
         private System.Windows.Forms.CheckBox checkBox19;
         private System.Windows.Forms.CheckBox checkBox13;
         private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
