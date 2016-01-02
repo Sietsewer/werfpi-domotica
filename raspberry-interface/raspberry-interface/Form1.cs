@@ -154,7 +154,7 @@ namespace raspberry_interface
             while (checkPins)
             {
                 Invoke(c);
-                Thread.Sleep(100);
+                Thread.Sleep(200);
             }
         }
 
@@ -195,6 +195,16 @@ namespace raspberry_interface
         private void boiler_indicator_CheckedChanged(object sender, EventArgs e)
         {
             Settings.saveValues();
+        }
+
+        private void checkBox12_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox19_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

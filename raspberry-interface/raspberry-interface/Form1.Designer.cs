@@ -190,54 +190,56 @@
             // 
             // checkBox13
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(6, 52);
+            this.checkBox13.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox13.Location = new System.Drawing.Point(6, 50);
             this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(56, 17);
+            this.checkBox13.Size = new System.Drawing.Size(56, 38);
             this.checkBox13.TabIndex = 4;
             this.checkBox13.Text = "Pin 13";
             this.checkBox13.UseVisualStyleBackColor = true;
             // 
             // checkBox6
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(6, 29);
+            this.checkBox6.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox6.Location = new System.Drawing.Point(6, 6);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(50, 17);
+            this.checkBox6.Size = new System.Drawing.Size(56, 38);
             this.checkBox6.TabIndex = 3;
             this.checkBox6.Text = "Pin 6";
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // checkBox12
             // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(6, 6);
+            this.checkBox12.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox12.Location = new System.Drawing.Point(68, 94);
             this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(50, 17);
+            this.checkBox12.Size = new System.Drawing.Size(56, 38);
             this.checkBox12.TabIndex = 2;
-            this.checkBox12.Text = "Pin 5";
+            this.checkBox12.Text = "Pin 12";
             this.checkBox12.UseVisualStyleBackColor = true;
+            this.checkBox12.CheckedChanged += new System.EventHandler(this.checkBox12_CheckedChanged);
             // 
             // checkBox26
             // 
-            this.checkBox26.AutoSize = true;
+            this.checkBox26.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox26.Enabled = false;
-            this.checkBox26.Location = new System.Drawing.Point(6, 98);
+            this.checkBox26.Location = new System.Drawing.Point(130, 94);
             this.checkBox26.Name = "checkBox26";
-            this.checkBox26.Size = new System.Drawing.Size(56, 17);
+            this.checkBox26.Size = new System.Drawing.Size(56, 38);
             this.checkBox26.TabIndex = 1;
             this.checkBox26.Text = "Pin 26";
             this.checkBox26.UseVisualStyleBackColor = true;
             // 
             // checkBox19
             // 
-            this.checkBox19.AutoSize = true;
-            this.checkBox19.Location = new System.Drawing.Point(6, 75);
+            this.checkBox19.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox19.Location = new System.Drawing.Point(6, 94);
             this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(56, 17);
+            this.checkBox19.Size = new System.Drawing.Size(56, 38);
             this.checkBox19.TabIndex = 0;
             this.checkBox19.Text = "Pin 19";
             this.checkBox19.UseVisualStyleBackColor = true;
+            this.checkBox19.CheckedChanged += new System.EventHandler(this.checkBox19_CheckedChanged);
             // 
             // clock
             // 
@@ -453,7 +455,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.system.ResumeLayout(false);
             this.gpioTest.ResumeLayout(false);
-            this.gpioTest.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperatureSensorBindingSource)).EndInit();
