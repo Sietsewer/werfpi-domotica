@@ -29,15 +29,26 @@ namespace raspberry_interface
             sensors = initSensors();
             populateTempTable(sensors);
 
+            initSettings();
+            
             pin12 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO12, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
             pin6 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO6, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
             pin13 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO13, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
             pin19 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO19, GPIOPinDriver.GPIODirection.Out, GPIOPinDriver.GPIOState.Low);
 
             pin26 = new GPIOPinDriver(GPIOPinDriver.Pin.GPIO26, GPIOPinDriver.GPIODirection.In);
-
+            
             updateChecksThread = new Thread(checkGPIO);
             updateChecksThread.Start();
+            
+        }
+
+        private void initSettings()
+        {
+            input_Hysteresis.Value = (decimal)Settings.instance.Hysteresis;
+            input_HysteresisOffset.Value = (decimal)Settings.instance.HysteresisOffset;
+            input_MaximumTemperature.Value = (decimal)Settings.instance.MaximumTemperature;
+            input_MinimumTemperature.Value = (decimal)Settings.instance.MinimumTemperature;
 
         }
 
@@ -73,11 +84,7 @@ namespace raspberry_interface
             return sensorList.ToArray();
         }
 
-        delegate void SetTimeCallback(string time);
-        private void setTime(string s)
-        {
-            clock.Text = s;
-        }
+        delegate void SetTimeCallback();
 
         delegate void UpdateTableCallback();
         private void updateTable()
@@ -93,17 +100,19 @@ namespace raspberry_interface
 
         private void updateTime()
         {
-            SetTimeCallback c = new SetTimeCallback(setTime);
+            SetTimeCallback c = delegate {
+                clock.Text = DateTime.Now.ToString("H:mm:ss");
+            };
             while (true)
             {
-                this.Invoke(c, new object[] { DateTime.Now.ToString("H:mm:ss") });
-                clock.Text = DateTime.Now.ToString("H:mm:ss");
+                Invoke(c);
                 Thread.Sleep(100);
             }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //Settings.saveValues();
             updateTimeThread.Abort();
             updateTableThread.Abort();
             foreach(TemperatureSensor s in sensors)
@@ -139,6 +148,7 @@ namespace raspberry_interface
                 pin19.State = checkBox19.CheckState == CheckState.Checked ? GPIOPinDriver.GPIOState.High : GPIOPinDriver.GPIOState.Low;
 
                 checkBox26.CheckState = pin26.State == GPIOPinDriver.GPIOState.High ? CheckState.Checked : CheckState.Unchecked;
+                boiler_indicator.Checked = checkBox26.CheckState == CheckState.Checked;
             };
             checkPins = true;
             while (checkPins)
@@ -146,6 +156,45 @@ namespace raspberry_interface
                 Invoke(c);
                 Thread.Sleep(100);
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void input_Hysteresis_ValueChanged(object sender, EventArgs e)
+        {
+            if(Settings.init)
+               Settings.instance.Hysteresis = (float)input_Hysteresis.Value;
+        }
+
+        private void input_HysteresisOffset_ValueChanged(object sender, EventArgs e)
+        {
+            if (Settings.init)
+                Settings.instance.HysteresisOffset = (float)input_HysteresisOffset.Value;
+        }
+
+        private void input_MinimumTemperature_ValueChanged(object sender, EventArgs e)
+        {
+            if (Settings.init)
+                Settings.instance.MinimumTemperature = (float)input_MinimumTemperature.Value;
+        }
+
+        private void input_MaximumTemperature_ValueChanged(object sender, EventArgs e)
+        {
+            if (Settings.init)
+                Settings.instance.MaximumTemperature = (float)input_MaximumTemperature.Value;
+        }
+
+        private void boiler_indicator_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.saveValues();
         }
     }
 }
